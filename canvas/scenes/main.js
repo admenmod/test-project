@@ -27,7 +27,7 @@ Scene.create('main', function() {
 	};
 });
 
-Scene.run('main');
+// Scene.run('main');
 
 console.log(ver);
 
