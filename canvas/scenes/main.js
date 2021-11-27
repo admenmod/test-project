@@ -8,7 +8,7 @@ Scene.create('main', function() {
 		points.push(new nodes_ns.Point({
 			pos: vec2(random(0, screenSize.x), random(0, screenSize.y)),
 			radius: random(2, 5),
-			color: `rgba(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)}, ${random(10, 100)/100})`
+			color: `rgba(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)}, ${random(1, 20)/100})`
 		}));
 	};
 	
@@ -27,7 +27,7 @@ Scene.create('main', function() {
 	};
 });
 
-// Scene.run('main');
+Scene.run('main');
 
 console.log(ver);
 

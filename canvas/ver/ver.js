@@ -45,7 +45,7 @@
 		el.onerror = e => rej(e);
 	});
 	
-	let loadScript = (src, p = {}) => {
+	let loadScript = (src, p = {}) => new Promise((res, rej) => {
 		let parent = p.parent || document.querySelector('head');
 		
 		let script = document.createElement('script');
@@ -55,11 +55,9 @@
 		
 		parent.append(script);
 		
-		return new Promise((res, rej) => {
-			script.onload = e => res(e);
-			script.onerror = e => rej(e);
-		});
-	};
+		script.onload = e => res(e);
+		script.onerror = e => rej(e);
+	});
 	
 	let loader = { loadImage, loadScript, cache: new WeakMap() };
 	
@@ -629,8 +627,8 @@
 	
 	
 	ver = {
-		version: '1.0.0',
-		
+		version: '1.1.0',
+
 		codeShell, random, JSONcopy, loader, loadImage, loadScript, generateImage,
 		EventEmitter, Scene, Child,
 		Vector2, vec2, VectorN, vecN,
