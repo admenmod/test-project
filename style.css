@@ -35,10 +35,11 @@ small {
 }
 
 .win {
+	--margin-top: 10vmin;
 	display: grid;
 	justify-items: center;
-	margin-top: 50px;
-	min-height: 100vh;
+	margin-top: var(--margin-top);
+	min-height: calc(100vh - var(--margin-top));
 }
 
 .youtube-iframe {
@@ -59,7 +60,7 @@ small {
 	left: 0px;
 	padding: 5px;
 	width: 100vw;
-	height: 50px;
+	min-height: var(--margin-top);
 	background: #aaaaaa;
 	box-shadow: 0px 2px 2px #777777;
 }
@@ -77,15 +78,14 @@ small {
 	border-radius: 7px;
 	transition: all linear 200ms;
 } .nav-button:hover {
-	background: #aaaaaa;
+	background: #eeeeee;
 	border-color: #444444;
-	--main-back-color: #440000;
 }
 
 .ribbon-style {
 	padding: 10px;
 	width: 100vw;
-	background: rgba(255, 255, 200, 0.9);
+	background: rgba(255, 255, 230, 0.9);
 	border: 1px solid #777777;
 	border-left: 0px;
 	border-right: 0px;
@@ -97,8 +97,9 @@ small {
 
 .gallery {
 	display: grid;
+	justify-items: start;
 	grid-gap: 10px;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(3, min-content);
 	padding: 10px;
 	max-width: 100vw;
 	overflow-x: scroll;
@@ -126,7 +127,7 @@ small {
 	--size: 200px;
 	--anim-time: 300ms;
 	
-	--price-color: #333333;
+	--price-color: #444444;
 	--price-back: #cccccc;
 	
 	width: calc(var(--size) + var(--margin) * 2);
@@ -143,6 +144,7 @@ small {
 
 .card-product > .title {
 	color: darkred;
+//	font-weight: bold;
 	font-size: 1.5em;
 	padding: 10px;
 }
@@ -166,15 +168,14 @@ small {
 }
 
 .card-product > .price {
-	font-size: 2em;
+	padding: 5px;
+	font-size: 1.6em;
 	color: var(--price-color);
 	background: var(--price-back);
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	transition: all var(--anim-time);
-}
-
-.card-product:hover {
+} .card-product:hover {
 	--price-color: #eeeeee;
 	--price-back: #aa1111;
 }
