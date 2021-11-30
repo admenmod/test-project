@@ -8,6 +8,8 @@
 	box-sizing: border-box;
 }
 
+[hidden] { display: none; !important }
+
 canvas-layer {
 	z-index: -1;
 	position: fixed;
@@ -48,11 +50,18 @@ small {
 	height: calc(var(--size) / 1.4);
 }
 
+.image-wrapper > img {
+	width: 100%;
+	height: 100%;
+}
+
+
 .nav {
 	z-index: 10;
 	display: grid;
-	align-content: start;
+	align-items: start;
 	grid-gap: 5px;
+	grid-template-columns: repeat(4, max-content);
 	grid-auto-columns: max-content;
 	
 	position: fixed;
@@ -80,6 +89,32 @@ small {
 } .nav-button:hover {
 	background: #eeeeee;
 	border-color: #444444;
+}
+
+.header {
+	display: grid;
+	align-items: center;
+	grid-gap: 5px;
+	grid-template-columns: repeat(2, 1fr);
+	padding: 5px 10px;
+	width: 100vw;
+	background: #cccccc;
+}
+
+.contacts {
+	justify-self: end;
+	color: #111111;
+}
+
+.contact-links {
+	display: grid;
+	justify-self: start;
+	grid-gap: 10px;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-links > .icon {
+	width: 40px;
 }
 
 .ribbon-style {
@@ -144,7 +179,7 @@ small {
 
 .card-product > .title {
 	color: darkred;
-//	font-weight: bold;
+	font-weight: bold;
 	font-size: 1.5em;
 	padding: 10px;
 }
@@ -157,19 +192,16 @@ small {
 	background: #cccccc;
 }
 
-.card-product > .image-wrapper > img {
-	width: 100%;
-	height: 100%;
-}
-
 .card-product > .description {
 	padding: 5px;
 	color: #777777;
+	font-weight: bold;
 }
 
 .card-product > .price {
 	padding: 5px;
 	font-size: 1.6em;
+	font-weight: bold;
 	color: var(--price-color);
 	background: var(--price-back);
 	border-bottom-right-radius: 5px;
